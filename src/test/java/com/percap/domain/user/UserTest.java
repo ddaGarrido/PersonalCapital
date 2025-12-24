@@ -2,6 +2,8 @@ package com.percap.domain.user;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
@@ -23,7 +25,7 @@ class UserTest {
     @Test
     void testGetAuthorities_WithRole() {
         // Act
-        Collection<? extends org.springframework.security.core.GrantedAuthority> authorities = user.getAuthorities();
+        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
         // Assert
         assertNotNull(authorities);
@@ -37,7 +39,7 @@ class UserTest {
         user.setRole(UserRole.ADMIN);
 
         // Act
-        Collection<? extends org.springframework.security.core.GrantedAuthority> authorities = user.getAuthorities();
+        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
         // Assert
         assertNotNull(authorities);
@@ -51,7 +53,7 @@ class UserTest {
         user.setRole(null);
 
         // Act
-        Collection<? extends org.springframework.security.core.GrantedAuthority> authorities = user.getAuthorities();
+        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
         // Assert
         assertNotNull(authorities);
@@ -94,7 +96,7 @@ class UserTest {
     @Test
     void testUserDetailsImplementation() {
         // Assert
-        assertTrue(user instanceof org.springframework.security.core.userdetails.UserDetails);
+        assertTrue(user instanceof UserDetails);
     }
 
     @Test
