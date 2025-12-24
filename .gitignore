@@ -45,3 +45,5 @@ build/
 ### Log Files ###
 *.log
 logs/
+
+*.md
