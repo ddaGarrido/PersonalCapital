@@ -3,7 +3,7 @@ package com.percap.infra.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.percap.domain.user.User;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Service
 public class TokenService {
 
-//    @Value("${api.security.token.secret}")
+    @Value("${api.security.token.secret}")
     private String secret;
 
     public String generateToken(User user) {
